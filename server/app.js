@@ -1,6 +1,7 @@
 import express from "express";
 import mongoose from "mongoose";
 import router from "./routes/books.routes.js";
+import userRoutes from "./routes/user.routes.js";
 const app = express();
 app.use(express.json())
 app.use(express.urlencoded({ extended: false }));
@@ -22,6 +23,7 @@ mongoose
   });
 
 app.use("/", router);
+app.use("/", userRoutes);
 
 app.listen(8080, "localhost", () => {
   console.log(`server is running on http://localhost:${8080}`);
